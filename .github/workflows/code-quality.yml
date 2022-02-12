@@ -17,6 +17,5 @@ jobs:
     - run: pip install black==21.6b0 mypy==v0.931 poetry
     - run: poetry install
     - run: black --diff --check $(git ls-files '*.py')
-    - run: cd flask_app
-    - run: poetry install
-    - run: poetry run mypy --strict flask_app/
+    - run: mypy --strict $(git ls-files '*.py')
+
