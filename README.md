@@ -1,0 +1,1 @@
+python -m grpc_tools.protoc -I./testing --python_out=. --grpc_python_out=. ./testing/pingpong.proto
