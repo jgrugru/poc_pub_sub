@@ -5,15 +5,15 @@ from redis import Redis
 r = Redis()
 
 # Create subscriber
-subscriber = r.pubsub()
-subscriber.subscribe('redis_channel')
+# subscriber = r.pubsub()
+# subscriber.subscribe('redis_channel')
 
-subscriber1 = r.pubsub()
-subscriber1.subscribe('redis_channel')
+# subscriber1 = r.pubsub()
+# subscriber1.subscribe('redis_channel')
 
 # Publish message, has to match classical_music
-print(r.publish("redis_channel", "This is my message"))
-print(r.publish("redis_channel", "This is my message 2"))
+print(r.publish("BrokerShow", "This is my message"))
+print(r.publish("BrokerShow", "{'status':'New', 'raw_broker_show':'AMD Feb 150c'}"))
 
 
 # print(subscriber.get_message()["data"])
