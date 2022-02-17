@@ -1,22 +1,15 @@
 [tool.poetry]
-name = "poc_pub_sub"
+name = "flask_app"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["jgrugru <jeff.gruenbaum@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-redis = "^4.1.3"
-kombu = "^5.2.3"
-aioredis = "^2.0.1"
-async-timeout = "^4.0.2"
 Flask = "^2.0.3"
+redis = "^4.1.4"
 
 [tool.poetry.dev-dependencies]
-black = "^22.1.0"
-mypy = "^0.931"
-flake8 = "^4.0.1"
-pytest = "^7.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
