@@ -15,7 +15,6 @@ r = Redis()
 print(r.publish("BrokerShow", "This is my message"))
 print(r.publish("BrokerShow", "{'status':'New', 'raw_broker_show':'AMD Feb 150c'}"))
 
-
 # print(subscriber.get_message()["data"])
 # print(subscriber.get_message()["data"])
 # print(subscriber.get_message()["data"])

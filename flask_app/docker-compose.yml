@@ -1,10 +1,11 @@
 services:
     flask_app:
-        image: flask_app
+        build: .
         ports:
             - "5000:5000"
         volumes:
-            - .:/code
+        - .:/workspace
+        - logvolume01:/var/log
         depends_on:
             - redis
         environment:
@@ -12,3 +13,5 @@ services:
             - FLASK_ENV=${FLASK_ENV}
     redis:
         image: redis
+volumes:
+    logvolume01: {}
