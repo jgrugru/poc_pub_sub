@@ -3,9 +3,9 @@ import asyncio
 import async_timeout
 
 import aioredis
-import json
 
 STOPWORD = "STOP"
+
 
 async def reader(channel: aioredis.client.PubSub, redis):
     while True:
@@ -14,7 +14,10 @@ async def reader(channel: aioredis.client.PubSub, redis):
                 message = await channel.get_message(ignore_subscribe_messages=True)
                 if message is not None:
                     if "Acknowledged" not in message["data"].decode("utf-8"):
-                        await redis.publish("BrokerShow:2", "Acknowledged: " + message["data"].decode("utf-8"))
+                        await redis.publish(
+                            "BrokerShow:2",
+                            "Acknowledged: " + message["data"].decode("utf-8"),
+                        )
                         print(f"(Reader) Message Received: {message}")
                         # if message["data"].decode() == STOPWORD:
                         #     print("(Reader) STOP")
@@ -32,7 +35,9 @@ async def main():
 
     future = asyncio.create_task(reader(pubsub, redis))
 
-    await redis.publish("BrokerShow:1", "\{'status':'New', 'raw_broker_show':'AMD Feb 150c'\}")
+    await redis.publish(
+        "BrokerShow:1", "{'status':'New', 'raw_broker_show':'AMD Feb 150c'}"
+    )
     await redis.publish("BrokerShow:2", "World")
     await redis.publish("BrokerShow:1", STOPWORD)
 

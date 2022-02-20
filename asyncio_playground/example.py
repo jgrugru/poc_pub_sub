@@ -16,6 +16,7 @@ from typing import Callable
 #     y = await z(x)  # Still no - SyntaxError (no `async def` here)
 #     return y
 
+
 async def print_time_elapsed(fn: Callable):
     s = time.perf_counter()
     result = asyncio.run(fn())
@@ -23,13 +24,16 @@ async def print_time_elapsed(fn: Callable):
     print(f"{__file__} executed in {elapsed:0.2f} seconds.")
     return result
 
+
 async def count():
     print("One")
     await asyncio.sleep(1)
     print("Two")
 
+
 async def main():
     await asyncio.gather(count(), count(), count())
+
 
 if __name__ == "__main__":
     asyncio.run(print_time_elapsed(main()))
@@ -48,5 +52,3 @@ if __name__ == "__main__":
 
 # if __name__ == "__main__":
 #     asyncio.run(main())
-
-
