@@ -27,7 +27,7 @@ async def reader(channel: aioredis.client.PubSub, redis):
             pass
 
 
-async def main():
+async def main() -> None:
     redis = aioredis.from_url("redis://localhost")
     pubsub = redis.pubsub()
 

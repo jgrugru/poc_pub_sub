@@ -11,6 +11,8 @@ kombu = "^5.2.3"
 aioredis = "^2.0.1"
 async-timeout = "^4.0.2"
 Flask = "^2.0.3"
+fastapi = "^0.74.0"
+
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
